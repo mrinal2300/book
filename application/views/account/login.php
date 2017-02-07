@@ -1,7 +1,7 @@
 <?php echo validation_errors(); ?>
 
 
-<?php echo form_open('account/do_login'); ?>
+<?php echo form_open('account/login'); ?>
 
  <div class="form-group">
     <label for="username">Username</label>
@@ -16,3 +16,5 @@
 
   <input type="submit" value="Login"  class="btn btn-primary">
 </form>
+
+<?php echo anchor('account/register', 'Register'); ?>
