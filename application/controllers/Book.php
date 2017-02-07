@@ -16,7 +16,7 @@ class Book extends CI_Controller {
 		$resource = $query->row();
 		$data['resource'] = $resource;
 
-		$this->load->template('create_booking', $data);
+		$this->load->template('book/create', $data);
 
 
 

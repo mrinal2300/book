@@ -6,7 +6,7 @@ class Resource extends CI_Controller {
 	{
 		$query = $this->db->get("resources");
 		$data['resources'] = $query->result();
-		$this->load->template('resource_list',$data);
+		$this->load->template('resource/list',$data);
 
 
 	}
