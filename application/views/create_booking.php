@@ -8,10 +8,10 @@ date:
 </br></br>
 
 start time:
-<input name="slot" type="text">
+<input name="start_time" type="text">
 </br></br>
 end time:
-<input name="seats" type="text">
+<input name="end_time" type="text">
 </br></br>
 <button type="submit">Submit</button>
 </form>
