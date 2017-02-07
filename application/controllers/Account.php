@@ -14,7 +14,7 @@ class Account extends CI_Controller {
              redirect('account/login');
         }
 
-        $this->load->view('account/dashboard');
+        $this->load->template('account/dashboard');
     }
 
 	public function login(){
@@ -29,7 +29,7 @@ class Account extends CI_Controller {
         $this->form_validation->set_rules('password', 'Password', 'required|callback_validate_user');
 
         if ($this->form_validation->run() == FALSE){
-            $this->load->view('account/login');
+            $this->load->template('account/login');
         } else {
             redirect('account/dashboard');
         }
@@ -52,7 +52,7 @@ class Account extends CI_Controller {
         $this->form_validation->set_rules('password', 'Password', 'requireds');
 
         if ($this->form_validation->run() == FALSE){
-            $this->load->view('account/register');
+            $this->load->template('account/register');
         } else {
             redirect('account/dashboard');
         }
