@@ -64,5 +64,37 @@ class Setup extends CI_Controller {
         $this->dbforge->create_table('resource_slots', TRUE);
 
 
+        //Create users table
+        $fields = array(
+            'id' => array(
+                    'type' => 'INT',
+                    'auto_increment' => TRUE
+            ),
+            'username' => array(
+                    'type' => 'VARCHAR',
+                    'constraint' => 150
+            ),
+            'name' => array(
+                    'type' => 'VARCHAR',
+                    'constraint' => 150
+            ),
+            'email' => array(
+                    'type' => 'VARCHAR',
+                    'constraint' => 150
+            ),
+            'password' => array(
+                    'type' => 'VARCHAR',
+                    'constraint' => 150
+            ),
+            'created_at' => array(
+                    'type' => 'DATETIME'
+            )
+        );
+
+        $this->dbforge->add_field($fields);
+        $this->dbforge->add_key('id', TRUE);
+        $this->dbforge->create_table('users', TRUE);
+
+
 	}
 }
