@@ -7,6 +7,15 @@ class Book extends CI_Controller {
 
 	}
 
+	public function new()
+	{
+		$query = $this->db->get("resources");
+		$data['resources'] = $query->result();
+		$this->load->template('resource/list',$data);
+
+
+	}
+
 	public function create($resource_id){
 
 		
