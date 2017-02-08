@@ -54,6 +54,7 @@ class Account extends CI_Controller {
 
         if ($this->form_validation->run() == FALSE){
             $this->load->template('account/register');
+            
         } else {
 
             $Full_name = $this->input->post('fullname');
