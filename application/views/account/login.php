@@ -1,18 +1,16 @@
 <?php echo validation_errors(); ?>
 
 
-<?php echo form_open('account/do_login'); ?>
+<?php echo form_open('account/login'); ?>
 
- <div class="form-group">
-    <label for="username">Username</label>
-    <input type="text" class="form-control" name="username">
-  </div>
+<label for="username">Username</label>
+<?php echo form_input('username', set_value('username'), 'class="form-control"'); ?>
+</br>
+<label for="password">Password</label>
+<?php echo form_input('password', '' , 'class="form-control"'); ?>
+</br>
+<?php echo form_submit('submit', 'Login' , 'class="btn btn-primary"'); ?>
 
+<?php echo form_close(); ?>
 
-   <div class="form-group">
-    <label for="exampleInputEmail1">Password</label>
-    <input type="password" class="form-control" name="password" >
-  </div>
-
-  <input type="submit" value="Login"  class="btn btn-primary">
-</form>
+<?php echo anchor('account/register', 'Register'); ?>
