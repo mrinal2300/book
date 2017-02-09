@@ -38,7 +38,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <?php echo anchor('book/new', 'Resources', array('class'=>'dropdown-item')); ?>
+              <?php echo anchor('admin/resource', 'Resources', array('class'=>'dropdown-item')); ?>
               <?php echo anchor('book/my', 'Users', array('class'=>'dropdown-item')); ?>
             </div>
           </li>

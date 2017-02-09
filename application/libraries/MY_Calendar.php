@@ -2,12 +2,91 @@
 
 class MY_Calendar extends CI_Calendar {
 
-	public function __construct(){
-        parent::__construct();
-    }
+	// public function __construct(){
+ //        parent::__construct();
+ //    }
 
 
     public function generate_main_calendar(){
+
+
+    	if($this->CI->session->userdata('calendar_type') == 'd'){
+
+    		return $this->day_html();
+
+    	} elseif($this->CI->session->userdata('calendar_type') == 'm'){
+
+    		return $this->month_html();
+
+    	}  else {
+    		return $this->week_html();
+    	}
+
+    }
+
+
+     public function month_html(){
+
+     	$out = "";
+     	$out = '<button class="btn btn-primary btn-sm">Pre</button> ';
+		$out .= ' <button class="btn btn-primary btn-sm">Next</button> ';
+		$out .= date('d M Y') . ' ';
+		$out .= '<span class="pull-right">';
+		$out .= '<a class="btn btn-primary btn-sm" href="/?type=d">Day</a> ';
+		$out .= '<a class="btn btn-primary btn-sm" href="/?type=w">Week</a> ';
+		$out .= ' <a class="btn btn-primary btn-sm" href="/?type=m">Month</a> ';
+		$out .= '</span>';
+		$out .= '<hr>';
+
+     	$out .= $this->generate();
+
+     	return $out;
+
+     }
+
+
+    public function day_html(){
+
+    	$out = "";
+
+		$range=range(strtotime("00:00"),strtotime("23:59"),30*60);
+
+    	$out = '<button class="btn btn-primary btn-sm">Pre</button> ';
+		$out .= ' <button class="btn btn-primary btn-sm">Next</button> ';
+
+		$out .= date('d M Y') . ' ';
+
+		$out .= '<span class="pull-right">';
+		$out .= '<a class="btn btn-primary btn-sm" href="/?type=d">Day</a> ';
+		$out .= '<a class="btn btn-primary btn-sm" href="/?type=w">Week</a> ';
+		$out .= ' <a class="btn btn-primary btn-sm" href="/?type=m">Month</a> ';
+		$out .= '</span>';
+
+		$out .= '<hr><table border="1" width="100%">';
+
+		$out .= '<tr>';
+		$out .= '<td>Time</td>';
+		$out .= '<td>'.date('d M Y').'</td>';
+		$out .= '</tr>';
+
+		foreach($range as $time){
+
+			$out .= '<tr><td>';
+			$out .= date("H:i",$time);
+			$out .= '</td>';
+			
+			$out .= '<td class="time-slot"></td>';
+
+			$out .= '</tr>';
+		}
+
+    	return $out;
+
+
+    }
+
+
+    public function week_html(){
 
 
     	$out = "";
@@ -41,9 +120,9 @@ class MY_Calendar extends CI_Calendar {
 		$out .= 'Week '.$current_week;
 
 		$out .= '<span class="pull-right">';
-		$out .= '<button class="btn btn-primary btn-sm">Day</button> ';
-		$out .= '<button class="btn btn-primary btn-sm">Week</button> ';
-		$out .= ' <button class="btn btn-primary btn-sm">Month</button> ';
+		$out .= '<a class="btn btn-primary btn-sm" href="/?type=d">Day</a> ';
+		$out .= '<a class="btn btn-primary btn-sm" href="/?type=w">Week</a> ';
+		$out .= ' <a class="btn btn-primary btn-sm" href="/?type=m">Month</a> ';
 		$out .= '</span>';
 
 		$out .= '<hr><table border="1" width="100%">';
@@ -88,30 +167,8 @@ class MY_Calendar extends CI_Calendar {
 
 		}
 		
-		
-
-			
-
-
-			//$out .= '<td>'.$i->format("Y-m-d").'</td>';
-
-			
-
-			//$arr[] = array('date' => $i->format("Y-m-d"), 'main' => $times);
-
-
-			
-
-	
 
 		$out .='</table>';
-		
-
-		//echo '<pre>'; print_r($arr); echo '</pre>';
-
-
-		
-
 		
 
     	return $out;

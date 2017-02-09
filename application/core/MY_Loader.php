@@ -1,5 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+require APPPATH."third_party/MX/Loader.php";
+
 class MY_Loader extends CI_Loader {
     public function template($template_name, $vars = array(), $return = FALSE) {
         if($return):
