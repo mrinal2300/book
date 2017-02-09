@@ -21,12 +21,10 @@ class Calendar extends CI_Controller {
 		$this->load->library('calendar', $prefs);
 
 		
-
-	
 		$data['side_calendar'] = $this->calendar->generate();
 		$data['main_calendar'] = $this->calendar->generate_main_calendar();
 
-		$this->load->template('calendar/list',$data);
+		$this->load->template('list',$data);
 
 
 	}
