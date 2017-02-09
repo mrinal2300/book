@@ -3,17 +3,17 @@
     <tr>
       <th>#</th>
       <th>Name</th>
-      <th>Last Name</th>
-      <th>Username</th>
+      <th>Description</th>
+      <th>Created at</th>
     </tr>
   </thead>
   <tbody>
 <?php foreach ($resources as $resource) { ?>
     <tr>
-      <th><?php echo $resource->name; ?></th>
+      <th><?php echo $resource->id; ?></th>
+      <th><?php echo anchor('admin/resource/view/'.$resource->id, $resource->name); ?></th>
       <td><?php echo $resource->description; ?></td>
-      <td><?php echo $resource->name; ?></td>
-      <td><?php echo $resource->name; ?></td>
+      <td><?php echo $resource->created_at; ?></td>
     </tr>	
 <?php } ?> 
   </tbody>
