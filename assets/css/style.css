@@ -6,3 +6,15 @@ body {
 	float: left;
 	margin-right: 20px;
 }
+
+
+.time-slot{
+	cursor: pointer;
+	
+}
+
+
+.time-slot:hover{
+	background: #ccc;
+	
+}
