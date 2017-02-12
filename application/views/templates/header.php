@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Book</title>
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
+<link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css'); ?>">
+<?php if(isset($css)) { ?>
+<?php foreach ($css as $css_file) { ?>
+<link rel="stylesheet" href="<?php echo base_url('assets/css/'.trim($css_file).'.css'); ?>">
+<?php } ?>
+<?php } ?>
 <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>">
 </head>
 <body>
@@ -30,7 +36,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <?php echo anchor('account/report', 'Report', array('class'=>'nav-link')); ?>
+            <?php echo anchor('account/report', 'Reports', array('class'=>'nav-link')); ?>
           </li>
           <li class="nav-item">
             <?php echo anchor('account/search', 'Search', array('class'=>'nav-link')); ?>
@@ -39,7 +45,7 @@
             <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
               <?php echo anchor('admin/resource', 'Resources', array('class'=>'dropdown-item')); ?>
-              <?php echo anchor('book/my', 'Users', array('class'=>'dropdown-item')); ?>
+              <?php echo anchor('admin/user', 'Users', array('class'=>'dropdown-item')); ?>
             </div>
           </li>
         </ul>
