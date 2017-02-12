@@ -133,13 +133,8 @@ class MY_Calendar extends CI_Calendar {
 
 
 		foreach($days as $day){
-        		//$times[] = date("H:i",$time);
-
-
-				
+        		
 				$out .= '<td>'.$day.'</td>';
-				
-
 		}
 
 		$out .= '</tr>';
